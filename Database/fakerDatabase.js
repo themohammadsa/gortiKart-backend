@@ -60,19 +60,19 @@ faker.seed(3);
 function addToDatabase() {
     Tablets.map((product) => {  
       const NewProduct = new Product(product);
-      const savedProduct = NewProduct.save();
+      NewProduct.save();
     })
      Laptops.map((product) => {  
       const NewProduct = new Product(product);
-      const savedProduct = NewProduct.save();
+      NewProduct.save();
     })
      Desktops.map((product) => {  
       const NewProduct = new Product(product);
-      const savedProduct = NewProduct.save();
+      NewProduct.save();
     })
      Accessories.map((product) => {  
       const NewProduct = new Product(product);
-      const savedProduct = NewProduct.save();
+      NewProduct.save();
     })
 }
 
