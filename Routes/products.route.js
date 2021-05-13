@@ -2,7 +2,7 @@ const express = require("express");
 const { Product } = require("../Models/product.model.js");
 const router = express.Router();
 
-router.route("/")
+router.route("/products")
 .get(async (req, res) => {
   try {
     const products = await Product.find();
@@ -14,7 +14,7 @@ router.route("/")
   }  
 })
 
-// router.route("/:id")
+// router.route("/products/:id")
 // .get(async (req, res) => {
 //   try {
 //     const { id } = req.params;

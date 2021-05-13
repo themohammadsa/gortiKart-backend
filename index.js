@@ -8,22 +8,22 @@ const { addToDatabase } = require("./Database/fakerDatabase.js")
 const { databaseConnection } = require("./Database/databaseConnection.connect.js")
 const PORT = 3000;
 
-app.use(cors());
-
+const corsOptions = {
+  origin: "https://gortikart.netlify.app"
+}
 
 databaseConnection();
 
+// Initial function run to add the data to MongoDB
 // addToDatabase();
 
-app.use("/products", productsRouter);
+app.use("/", cors(corsOptions), productsRouter);
+
 
 app.get('/', (req, res) => {
-  res.send('Hello Express app!')
+  res.send('Please visit "https://gortikart.netlify.app/" to view the application. ')
 });
 
-app.use((req, res) => {
-  res.status(404).json({ success: false, message: "Route not found on server, please check."})
-})
 
 app.listen(PORT, () => {
   console.log('server started on port: ', PORT);
