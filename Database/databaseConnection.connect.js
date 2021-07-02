@@ -5,7 +5,8 @@ async function databaseConnection() {
      const promise = await mongoose.connect(`mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.eqwxe.mongodb.net/inventory`, 
     {
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useCreateIndex: true
     })
     console.log("Connected successfully!")
   }

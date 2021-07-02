@@ -1,1 +1,0 @@
-#gortikart backend

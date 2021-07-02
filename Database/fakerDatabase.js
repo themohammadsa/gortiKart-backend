@@ -1,6 +1,6 @@
 const faker = require("faker");
 const mongoose = require("mongoose")
-const Product = require("../Models/product.model")
+const Product = require("../models/product.model")
 const { tabletImages, laptopImages, desktopImages, accessoriesImages } = require("./images")
 
 faker.seed(3);
@@ -60,19 +60,19 @@ faker.seed(3);
 function addToDatabase() {
     Tablets.map((product) => {  
       const NewProduct = new Product(product);
-      NewProduct.save();
+      const savedProduct = NewProduct.save();
     })
      Laptops.map((product) => {  
       const NewProduct = new Product(product);
-      NewProduct.save();
+      const savedProduct = NewProduct.save();
     })
      Desktops.map((product) => {  
       const NewProduct = new Product(product);
-      NewProduct.save();
+      const savedProduct = NewProduct.save();
     })
      Accessories.map((product) => {  
       const NewProduct = new Product(product);
-      NewProduct.save();
+      const savedProduct = NewProduct.save();
     })
 }
 
