@@ -5,7 +5,6 @@ const addToWishList = async (req, res) => {
     const { productId } = req.body;
       if (productId) {
           const data = await User.findById({ _id: userId });
-          console.log(data)
       try {
           data.wishlist = data.wishlist.concat(productId)
           const response = await data.save()
