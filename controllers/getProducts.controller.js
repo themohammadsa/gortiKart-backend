@@ -2,6 +2,7 @@ const { Product } = require("../models/product.model")
 
 const getProducts = async (req, res) => {
     try {
+      console.log("getting products..")
         const products = await Product.find({});
         res.json({success: true, products});
       } catch (err) {

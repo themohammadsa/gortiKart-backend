@@ -9,6 +9,7 @@ const login = async (req, res) => {
         if (checkData) {
             try {
                 const user = await User.findOne({ email: email });
+                console.log("user is...", user)
                 if (user !== null) {
                   const validatePassword = bcrypt.compareSync(password, user.password)
 

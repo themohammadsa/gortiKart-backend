@@ -1,6 +1,17 @@
 const mongoose = require("mongoose")
 const { Schema } = mongoose;
 
+const addressSchema = new Schema({
+    name: String,
+    mobile: Number,
+    country: String,
+    pin: Number,
+    flat: String,
+    area: String,
+    city: String,
+    state: String,
+})
+
 const userSchema = new Schema({
     name: {
         type: String,
@@ -17,7 +28,8 @@ const userSchema = new Schema({
         lowercase: true
     },
     cart: [String],
-    wishlist: [String]
+    wishlist: [String],
+    address: [addressSchema]
 })
 
 const User = mongoose.model("UserGortiKart", userSchema);

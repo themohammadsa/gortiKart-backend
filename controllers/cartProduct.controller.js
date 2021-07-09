@@ -7,6 +7,7 @@ const addToCart = async (req, res) => {
           const data = await User.findById({ _id: userId });
         try {
           data.cart = data.cart.concat(productId)
+          console.log(data)
           const response = await data.save()
           res.json({ 
           success: true, 

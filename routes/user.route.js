@@ -1,12 +1,12 @@
 var express = require('express');
 const router = express.Router();
-const { User } = require("../models/user.model")
 const { authHandler } = require("../middlewares/auth.middleware.js")
 const { signUp } = require("../controllers/signUp.controller")
 const { login } = require("../controllers/login.controller")
 const { getUserData } = require("../controllers/getUserData.controller")
 const { addToCart, removeFromCart, moveToCart } = require("../controllers/cartProduct.controller")
 const { addToWishList, removeFromWishList, moveToWishList } = require("../controllers/wishlistProduct.controller")
+const { addAddress, getAddress, removeAddress } = require("../controllers/address.controller")
 
 router.route("/signup")
   .post(signUp)
@@ -34,5 +34,15 @@ router.route("/wishlist/remove")
 
 router.route("/wishlist/move")
   .post(authHandler, moveToWishList)
+
+router.route("/address/get")
+  .get(authHandler, getAddress)
+
+router.route("/address/add")
+  .post(authHandler, addAddress)
+
+router.route("/address/remove")
+  .post(authHandler, removeAddress)
+
 
 module.exports = router;
